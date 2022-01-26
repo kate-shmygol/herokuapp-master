@@ -3,13 +3,10 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends Page {
 	public LoginPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
 	}
 
 	private static final String LOGIN_URL = BASE_URL + "/login";
@@ -36,8 +33,9 @@ public class LoginPage extends Page {
 		password.sendKeys(passwordValue);
 	}
 
-	public void clickOnLoginButton() {
+	public SecureAreaPage clickOnLoginButton() {
 		loginButton.click();
+		return new SecureAreaPage(driver);
 	}
 
 	@FindBy(xpath = "//i[contains(.,'Logout')]")

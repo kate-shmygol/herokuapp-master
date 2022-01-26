@@ -14,9 +14,9 @@ public class LoginTest extends BaseTest {
 		// insert valid password
 		loginPage.insertCredentials("tomsmith", "SuperSecretPassword!");
 		// click on Login button
-		loginPage.clickOnLoginButton();
+		secureAreaPage = loginPage.clickOnLoginButton();
 		// assert Logout button is present
-		assertTrue(loginPage.isLogoutButtonPresent(),"Logout button is present!");
+		assertTrue(loginPage.isLogoutButtonPresent(), "Logout button is present!");
 	}
 
 	@Test
