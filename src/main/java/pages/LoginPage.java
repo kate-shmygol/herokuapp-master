@@ -9,8 +9,10 @@ public class LoginPage extends Page {
 		super(driver);
 	}
 
+	// URL
 	private static final String LOGIN_URL = BASE_URL + "/login";
 
+	// Web elements
 	@FindBy(id = "username")
 	WebElement username;
 
@@ -19,6 +21,12 @@ public class LoginPage extends Page {
 
 	@FindBy(css = ".radius")
 	WebElement loginButton;
+
+	@FindBy(xpath = "//i[contains(.,'Logout')]")
+	WebElement logoutButton;
+
+	@FindBy(id = "flash")
+	WebElement alertText;
 
 	public void goToLoginPage() {
 		driver.navigate().to(LOGIN_URL);
@@ -38,15 +46,9 @@ public class LoginPage extends Page {
 		return new SecureAreaPage(driver);
 	}
 
-	@FindBy(xpath = "//i[contains(.,'Logout')]")
-	WebElement logoutButton;
-
 	public boolean isLogoutButtonPresent() {
 		return logoutButton.isDisplayed();
 	}
-
-	@FindBy(id = "flash")
-	WebElement alertText;
 
 	public String isAlertPresent() {
 		return alertText.getText();

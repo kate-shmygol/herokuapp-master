@@ -1,14 +1,16 @@
 package herokuapp;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HoversTest extends BaseTest {
 
+	@Tag("smoke")
 	@Test
 	public void testHoversOnImages() {
-		//open Hovers Page
+		// open Hovers Page
 		hoversPage.goToHoversPage();
 
 		for (int i = 1; i < 4; i++) {

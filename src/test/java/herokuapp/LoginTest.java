@@ -1,11 +1,14 @@
 package herokuapp;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginTest extends BaseTest {
 
+	@Tag("regression")
 	@Test
 	public void positiveLoginTest() {
 		// open page
@@ -19,6 +22,8 @@ public class LoginTest extends BaseTest {
 		assertTrue(loginPage.isLogoutButtonPresent(), "Logout button is present!");
 	}
 
+	@Disabled
+	@Tag("smoke")
 	@Test
 	public void negativeLoginTest() {
 		// open page
